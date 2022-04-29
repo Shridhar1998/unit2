@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="frontend.html">
+    <link rel="stylesheet" href="backend.html"> -->
+    <link rel="stylesheet" href="comman.css">
+    <title>Backend</title>
+</head>
+<body>
+    <h1>Backend</h1>
+    <div id="navabar">
+        <div><a href="Backend.html">Backend</a></div>
+
+        <div><a href="Frontend.html">frontend</a></div>
+    </div>
+<form id="form">
+    <input id="imagelink" type="text" placeholder="imgURL">
+    <input type="text" id="Name" placeholder="enter name ">
+    <input type="text" id="pos" placeholder="enter the position">
+    <input type="text" id="logo" placeholder="logo URL">
+    <input type="submit">
+
+</form>
+
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit",investorFun)
+
+//    crate a array
+var  investorArr=JSON.parse(localStorage.getItem("investorsData"))||[]
+   function investorFun(){
+       event.preventDefault();
+       var investorObj={
+           invImg:form.imagelink.value,
+           invName: form.Name.value,
+           invPos:form.pos.value,
+           invlogo:form.logo.value,
+
+       };
+       investorArr.push(investorObj);
+       console.log(investorArr);
+       localStorage.setItem("investorsData",JSON.stringify(investorArr))
+       
+
+   }
+</script>
